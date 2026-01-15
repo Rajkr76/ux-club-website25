@@ -1,12 +1,35 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import ScrollReveal from './ScrollReveal';
 import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 export default function AfterEvent() {
+
+     const textRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      textRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: textRef.current,
+          start: "top 80%",
+          end: "+=230",
+          scrub: 1,
+        },
+      }
+    );
+  }, []);
+    
     return (
         <>
-            <motion.div
-
+            <div
                 className=" bg-black lg:px-5 px-4 lg:pt-25 pt-5 pb-10 ">
                 <motion.hr className="h-px  border-white origin-left"
                     initial={{ scaleX: 0 }}
@@ -15,28 +38,32 @@ export default function AfterEvent() {
                     transition={{ duration: 1.2, ease: "easeInOut" }}
                 />
 
-
-
-
-                <motion.h1 className=" font-mono lg:text-xl font-semibold text-sm text-white mt-3"
+                <motion.h1 className=" font-[Neue] lg:text-xl font-semibold text-sm text-white mt-3"
 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                    (All_Products)
+                    (About Our Club)
                 </motion.h1>
-                <motion.div className='flex justify-between bg-black lg:text-8xl text-white font-sans font-bold tracking-normal mt-5 cursor-pointer'
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                <div className='flex justify-between bg-black lg:text-8xl text-white font-sans font-bold tracking-normal mt-5 cursor-pointer'
+                    // initial={{ opacity: 0, y: 40 }}
+                    // whileInView={{ opacity: 1, y: 0 }}
+                    // viewport={{ once: false, amount: 0.3 }}
+                    // transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
 
-                    <h1 className='flex justify-center lg:text-8xl text-xl items-center gap-x-3'>
-                        See All Monoliths <span className="hover:scale-75 transition-ease-in-out duration-300">
-                            <svg
+                    <h1 className='flex justify-center font-[Neue] lg:text-8xl text-xl items-center gap-x-3'>
+                        <ScrollReveal as="span">
+                           See Our Past Events
+                        </ScrollReveal>
+                        <span 
+                        className="hover:scale-75 transition-ease-in-out duration-300">
+                           
+<svg
+
+ ref={textRef}
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 fill="none"
@@ -49,48 +76,66 @@ export default function AfterEvent() {
                                 <path d="M13 5H19V11" />
                                 <path d="M19 5L5 19" />
                             </svg>
+                            
 
                         </span>
 
                     </h1>
                     <h1>
+                        <ScrollReveal as="span">
                         0_19
+                        </ScrollReveal>
                     </h1>
-                </motion.div>
-
-                <motion.div
+                </div>
+                <div
                     className="bg-black mt-6 lg:pt-10 pt-5 text-white"
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                // initial={{ opacity: 0, y: 40 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // viewport={{ once: false, amount: 0.3 }}
+                // transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
                     {/* bigger screen ke liye */}
-                    <div className='hidden lg:block'>
-                        <h1 className='lg:flex gap-x-20 tracking-wide font-semibold  lg:justify-center lg:items-center'>
-                            <span>(About_Monolith)</span>
-                            <span className="lg:text-5xl text-sm leading-tight font-bold font-sans tracking-normal">
-                                Using raw materials like volcanic stone and wood,
+                    <div className="hidden lg:block">
+                        <h1 className="lg:flex gap-x-20 tracking-wide font-semibold lg:justify-center lg:items-center">
+                            <span>
+                                
+                                <ScrollReveal as="span">
+                                    (About uxclub)
+                                </ScrollReveal></span>
+
+                            <span className="lg:text-5xl text-sm leading-tight font-bold font-[Neue] tracking-normal">
+                                <ScrollReveal as="span"  >
+                                    Student-driven community for UX and design thinking
+                                </ScrollReveal>
                             </span>
                         </h1>
-                        <h1 className='flex gap-x-20 font-semibold'>
-                            <p className="lg:text-5xl text-sm leading-tight font-bold font-sans tracking-normal text-left">
-                                Monolith Studio's sculptural forms blur the line between Furniture and Collectible Design. Collaborating closely with talented craftsmen in Mexico each piece is worked by hand to reveal the beauty in the incredible materials found there.
-                            </p>
+
+                        <h1 className="flex gap-x-20 font-semibold">
+                            <span className="lg:text-5xl text-sm leading-tight font-bold font-[Neue] tracking-normal text-left">
+                                <ScrollReveal as="span">
+                                    UXClub focuses on building UX/UI design, product thinking, and digital creativity skills, bringing together designers, developers, and innovators through workshops, design sprints, hackathons, and speaker sessions to promote collaboration, innovation, and real-world problem solving on campus.
+                                </ScrollReveal>
+                            </span>
                         </h1>
                     </div>
 
-                    {/* Mobile layout ke liye */}
-                    <div className='lg:hidden'>
-                        <p className='tracking-normal text-sm mb-2'>
-                            (About_Monolith)
-                        </p>
-                        <p className="text-[14px] text-justify leading-none font-medium font-sans tracking-normal mt-4">
-                            Using raw materials like volcanic stone and wood, Monolith Studio's sculptural forms blur the line between Furniture and Collectible Design. Collaborating closely with talented craftsmen in Mexico each piece is worked by hand to reveal the beauty in the incredible materials found there.
-                        </p>
-                    </div>
-                </motion.div>
 
+                    {/* Mobile layout ke liye */}
+                    <motion.div className='lg:hidden'
+                     initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}>
+                        <p className='tracking-normal font-[Neue] text-sm mb-2'>
+                            (About_uxclub)
+                        </p>
+                        <p className="text-[14px] text-justify leading-none font-medium font-[Neue] tracking-normal mt-4">
+                            
+                            UXClub focuses on building UX/UI design, product thinking, and digital creativity skills, bringing together designers, developers, and innovators through workshops, design sprints, hackathons, and speaker sessions to promote collaboration, innovation, and real-world problem solving on campus.
+                            
+                        </p>
+                    </motion.div>
+                </div>
                 <motion.div className="bg-black flex justify-between mt-6 lg:pt-10 pt-5 text-white"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -99,15 +144,19 @@ export default function AfterEvent() {
                 >
                     <div className='hidden tracking-tight leading-tight lg:block space-y-5 font-sans w-full font-bold  lg:w-[60%]'>
                         <h1 className="lg:pl-[20vw] text-base lg:pr-10">
-                            Founded by designer Marc Personick, Monolith launched its initial collection in 2023, often partnering with other talented architects and designers around the world with the direction of his brutalist aesthetic.
+                            <ScrollReveal as="span">
+                            Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
+                            </ScrollReveal>
                         </h1>
                         <h1 className="lg:pl-[20vw] text-base lg:pr-10">
-                            The resulting furniture and objects are simultaneously functional pieces and collectible art.
+                            <ScrollReveal as="span">
+                           UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
+                            </ScrollReveal>
                         </h1>
                     </div>
 
                     <div className='hidden lg:block lg:w-[25%]'>
-                        <ul className='space-y-4 font-sans font-semibold text-sm tracking-normal'>
+                        <ul className='space-y-4 font-[Neue] font-medium text-sm tracking-normal'>
                             <li>
                                 Site links:
                             </li>
@@ -126,11 +175,11 @@ export default function AfterEvent() {
                                     />
                                     <motion.button className="z-10"
                                         variants={{
-                                            initial: { color: "#ffffff",marginLeft:"0px" },
-                                            hover: { color: "#000000",marginLeft:"15px" },
+                                            initial: { color: "#ffffff", marginLeft: "0px" },
+                                            hover: { color: "#000000", marginLeft: "15px" },
                                         }}
                                         transition={{ duration: 0.25 }}>
-                                        Monolith Trade
+                                        Recruitment
                                     </motion.button>
                                     <motion.svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -142,8 +191,8 @@ export default function AfterEvent() {
                                         strokeLinejoin="round"
                                         className="w-4 h-4 lg:w-5 lg:h-5 z-10"
                                         variants={{
-                                            initial: { color: "#ffffff" ,marginRight:"0px" },
-                                            hover: { color: "#000000",marginRight:"15px" },
+                                            initial: { color: "#ffffff", marginRight: "0px" },
+                                            hover: { color: "#000000", marginRight: "15px" },
                                         }}
                                         transition={{ duration: 0.25 }}
                                     >
@@ -241,12 +290,12 @@ export default function AfterEvent() {
                         </ul>
                     </div>
 
-                            <div className='lg:hidden'>
-                        <p className='tracking-tight leading-tight text-justify text-sm mb-2'>
-                            Founded by designer Marc Personick, Monolith launched its initial collection in 2023, often partnering with other talented architects and designers around the world with the direction of his brutalist aesthetic.
+                    <div className='lg:hidden'>
+                        <p className='tracking-tight font-[Neue] leading-none text-justify text-sm mb-2'>
+                            Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
                         </p>
-                        <p className="text-sm tracking-tight text-justify leading-tight  font-sans tracking-normal mt-4">
-                            The resulting furniture and objects are simultaneously functional pieces and collectible art.
+                        <p className="text-sm tracking-tight font-[Neue] text-justify leading-none    mt-4">
+                            UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
                         </p>
                     </div>
                 </motion.div>
@@ -258,7 +307,7 @@ export default function AfterEvent() {
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                    <ul className='space-y-3 font-sans font-semibold text-sm tracking-normal text-white'>
+                    <ul className='space-y-3 font-[Neue] text-sm tracking-normal text-white'>
                         <li>
                             Site links:
                         </li>
@@ -282,7 +331,7 @@ export default function AfterEvent() {
                                         hover: { color: "#000000", marginLeft: "10px" },
                                     }}
                                     transition={{ duration: 0.25 }}>
-                                    Monolith Trade
+                                    Recruitment
                                 </motion.button>
                                 <motion.svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -391,7 +440,7 @@ export default function AfterEvent() {
                     </ul>
                 </motion.div>
 
-            </motion.div>
+            </div>
         </>
     )
 }

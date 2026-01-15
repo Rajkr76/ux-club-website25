@@ -23,25 +23,25 @@ export default function Footer() {
         className="lg:hidden flex justify-between px-3 mt-10 lg:text-lg sm:text-sm md:text-md text-xs pb-10 bg-black ">
             <div className="block">
                 <ul >
-                    <li>
+                    <li className='font-[Neue]'>
                         Contact
                     </li>
-                    <li>
+                    <li className='font-[Neue]'>
                         info@uxclub.com
                     </li>
                 </ul>
                 <ul className="mt-4">
-                    <li>
+                    <li className='font-[Neue]'>
                         Contact
                     </li>
-                    <li>
+                    <li className='font-[Neue]'>
                         info@uxclub.com
                     </li>
                 </ul>
             </div>
             <div className="block text-right mt-1  ">
                 <ul className='flex gap-1 justify-end items-center'>
-                    <li className='text-lg' >
+                    <li className='text-lg font-[Neue]' >
                         Instagram
                     </li>
                     <svg
@@ -61,7 +61,7 @@ export default function Footer() {
                     
                 </ul>
                 <ul className="mt-4">
-                    <li className='text-sm'>
+                    <li className='text-sm font-[Neue]'>
                         UXCLUB
                     </li>
                     <li>
