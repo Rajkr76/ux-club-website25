@@ -18,6 +18,7 @@ const ScrollReveal = ({
   textClassName = "",
   rotationEnd = "bottom bottom",
   wordAnimationEnd = "bottom bottom",
+  stagger = 0.12,
 }) => {
   const containerRef = useRef(null);
 
@@ -64,7 +65,7 @@ const ScrollReveal = ({
       { opacity: baseOpacity },
       {
         opacity: 1,
-        stagger: 0.12,
+        stagger: stagger,
         ease: "none",
         scrollTrigger: {
           trigger: el,
@@ -104,6 +105,7 @@ const ScrollReveal = ({
     blurStrength,
     rotationEnd,
     wordAnimationEnd,
+    stagger,
   ]);
 
   return (

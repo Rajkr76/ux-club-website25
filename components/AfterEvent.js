@@ -53,7 +53,6 @@ export default function AfterEvent() {
                 // viewport={{ once: false, amount: 0.3 }}
                 // transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-
                     <h1 className='flex justify-center font-[Neue]  lg:text-7xl xl:text-8xl text-xl  items-center gap-x-3'>
                         {/* <ScrollReveal as="span"> */}
                         See Our Past Events
@@ -62,7 +61,6 @@ export default function AfterEvent() {
                             className="hover:scale-75 transition-ease-in-out duration-300">
 
                             <svg
-
 
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -76,7 +74,6 @@ export default function AfterEvent() {
                                 <path d="M13 5H19V11" />
                                 <path d="M19 5L5 19" />
                             </svg>
-
 
                         </span>
 
@@ -104,7 +101,7 @@ export default function AfterEvent() {
                                 {/* </ScrollReveal> */}</span>
 
                             <span className="lg:text-4xl text-sm leading-tight font-bold font-[Neue] tracking-normal">
-                                <ScrollReveal as="span"  >
+                                <ScrollReveal as="span" stagger={0.02} delay={0.2} >
                                     Student-driven community for UX and design thinking
                                 </ScrollReveal>
                             </span>
@@ -112,7 +109,7 @@ export default function AfterEvent() {
 
                         <h1 className="flex gap-x-20 font-semibold">
                             <span className="lg:text-4xl text-sm leading-tight font-bold font-[Neue] tracking-normal text-left">
-                                <ScrollReveal as="span">
+                                <ScrollReveal as="span" stagger={0.05} delay={2.8} >
                                     UXClub focuses on building UX/UI design, product thinking, and digital creativity skills, bringing together designers, developers, and innovators through workshops, design sprints, hackathons, and speaker sessions to promote collaboration, innovation, and real-world problem solving on campus.
                                 </ScrollReveal>
                             </span>
@@ -156,13 +153,13 @@ export default function AfterEvent() {
                         </h1>
                     </div>
 
-                    <div className='hidden  lg:block lg:w-[25%]'>
+                    <div className='hidden  lg:block lg:w-[27%]'>
                         <ul className='space-y-4 font-[Neue] font-medium text-sm tracking-normal'>
                             <li>
                                 Site links:
                             </li>
                             <li >
-                                <motion.div className="border-t border-b py-2 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                                <motion.div className="border-t border-b py-3 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                     initial="initial"
                                     whileHover="hover"
                                 >
@@ -205,7 +202,7 @@ export default function AfterEvent() {
 
                             </li>
                             <li>
-                                <motion.div className="border-t border-b py-2 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                                <motion.div className="border-t border-b py-3 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                     initial="initial"
                                     whileHover="hover"
                                 >
@@ -247,7 +244,7 @@ export default function AfterEvent() {
 
                             </li>
                             <li>
-                                <motion.div className="border-t border-b py-2 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                                <motion.div className="border-t border-b py-3 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                     initial="initial"
                                     whileHover="hover"
                                 >
@@ -308,7 +305,7 @@ export default function AfterEvent() {
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                    <ul className='space-y-3 md:space-y-8 font-[Neue] text-sm w-72 sm:w-[25rem] md:w-[40rem] sm:text-medium md:h-[23rem] md:text-3xl font-semibold tracking-normal text-white'>
+                    <ul className='space-y-3 md:space-y-8 font-[Neue] text-sm w-70 sm:w-[25rem] md:w-[40rem] sm:text-medium md:h-[23rem] md:text-3xl font-semibold tracking-normal text-white'>
                         <li>
                             Site links:
                         </li>
