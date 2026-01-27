@@ -60,7 +60,7 @@ const TeamPage = () => {
         </div>
 
       
-        <div className="team-title" ref={titleBarRef}>
+        <div className="team-title " ref={titleBarRef}>
           <h1>THE TEAM</h1>
           <div className="counter">0_6</div>
         </div>

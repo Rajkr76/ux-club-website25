@@ -38,7 +38,7 @@ export default function AfterEvent() {
                     transition={{ duration: 1.2, ease: "easeInOut" }}
                 />
 
-                <motion.h1 className=" font-[Neue] lg:text-xl font-semibold text-sm text-white mt-3"
+                <motion.h1 className=" font-[Neue] lg:text-base font-semibold text-sm text-white mt-3"
 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -93,22 +93,23 @@ export default function AfterEvent() {
                 >
                     {/* bigger screen ke liye */}
                     <div className="hidden lg:block">
-                        <h1 className="lg:flex gap-x-20 tracking-wide font-semibold lg:justify-center lg:items-center">
-                            <span>
+                        <h1 className="lg:flex gap-x-20 tracking-wide font-semibold font-[Neue] lg:justify-start lg:items-center">
+                            <span className='text-base pb-1'>
 
                                 {/* <ScrollReveal as="span"> */}
                                     (About uxclub)
                                 {/* </ScrollReveal> */}</span>
 
-                            <span className="lg:text-4xl text-sm leading-tight font-bold font-[Neue] tracking-normal">
-                                <ScrollReveal as="span" stagger={0.02} delay={0.2} >
-                                    Student-driven community for UX and design thinking
+                            <span className="lg:text-3xl xl:text-4xl  text-sm leading-snug font-bold font-[Neue] tracking-normal ">
+                                <ScrollReveal as="span" stagger={0.02} delay={0.1} >
+                                   Student-driven community for UX and design thinking.
+                                   
                                 </ScrollReveal>
                             </span>
                         </h1>
 
-                        <h1 className="flex gap-x-20 font-semibold">
-                            <span className="lg:text-4xl text-sm leading-tight font-bold font-[Neue] tracking-normal text-left">
+                        <h1 className="flex gap-x-20 font-semibold font-[Neue]">
+                            <span className="lg:text-3xl xl:text-4xl  text-sm font-bold font-[Neue] tracking-normal text-left leading-snug">
                                 <ScrollReveal as="span" stagger={0.05} delay={2.8} >
                                     UXClub focuses on building UX/UI design, product thinking, and digital creativity skills, bringing together designers, developers, and innovators through workshops, design sprints, hackathons, and speaker sessions to promote collaboration, innovation, and real-world problem solving on campus.
                                 </ScrollReveal>
@@ -154,8 +155,8 @@ export default function AfterEvent() {
                     </div>
 
                     <div className='hidden  lg:block lg:w-[27%]'>
-                        <ul className='space-y-4 font-[Neue] font-medium text-sm tracking-normal'>
-                            <li>
+                        <ul className=' font-[Neue] font-semibold text-sm tracking-wider'>
+                            <li className='mb-5'>
                                 Site links:
                             </li>
                             <li >
@@ -305,8 +306,8 @@ export default function AfterEvent() {
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                    <ul className='space-y-3 md:space-y-8 font-[Neue] text-sm w-70 sm:w-[25rem] md:w-[40rem] sm:text-medium md:h-[23rem] md:text-3xl font-semibold tracking-normal text-white'>
-                        <li>
+                    <ul className=' md:space-y-8 font-[Neue] text-sm w-70 sm:w-[25rem] md:w-[40rem] sm:text-medium md:h-[23rem] md:text-3xl font-semibold tracking-normal text-white'>
+                        <li className='mb-3'>
                             Site links:
                         </li>
                         <li>

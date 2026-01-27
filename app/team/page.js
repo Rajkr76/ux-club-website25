@@ -50,21 +50,24 @@ const TeamPage = () => {
     <div className="team-container">
       <div className="top-box">
         <div className="header">
-          <span className="header-start">MEET THE TEAM</span>
-          <span ref={percentRef} className="scroll-percent">
+          <span className="header-start font-[Neue] text-base">MEET THE TEAM</span>
+          <span ref={percentRef} className="scroll-percent font-[Neue] text-base">
             00%
           </span>
-          <span className="header-end">MENU ●</span>
+          <span className="header-end font-[Neue] text-base">MENU ●</span>
         </div>
 
-        <div className="team-title" ref={titleBarRef}>
+        <div className="team-title  font-[Neue]" ref={titleBarRef}>
           <h1>THE TEAM</h1>
-          <div className="counter">0_6</div>
+          <div className="counter font-[Neue]">0_6</div>
         </div>
 
-        <div className="view-controls">
+        <div className="view-controls  ">
           <span>
-            IMG/<span className="faded">TXT</span>
+            TEAM/
+            <Link href="/card-stack/imagess">
+            <span className="faded font-[Neue]">MEMBERS</span>
+            </Link>
           </span>
         </div>
       </div>

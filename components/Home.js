@@ -18,7 +18,7 @@ export default function Home({show}) {
           // style={{ transformOrigin: "center" }}
         >
           <h1 className="font-[Socilo] lg:text-[28vw] lg:pl-5 xl:text-[30vw] sm:text-[28vw] md:text-[28vw] text-[28vw] leading-none tracking-wide lg:pt-24 sm:pt-18 md:pt-15 pt-10 text-center ">
-            Club
+            UX Club
           </h1>
         </div>
 

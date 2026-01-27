@@ -42,14 +42,14 @@ export default function UpcomingEvent() {
                 </div>
                 <div  className='flex flex-col w-full lg:w-[55%]'>
                     <div className='bg-white h-[60vh] lg:h-[900px] w-full mx-auto relative'>
-                        <Link href="/card-stack/imagess">
+                        
                         <Image
                             src="https://images.pexels.com/photos/2337838/pexels-photo-2337838.jpeg"
                             alt="Upcoming Event"
                             fill
                             className='object-cover'
                         />
-                        </Link>
+                       
                     </div>
                     <div className='text-xs font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
@@ -96,7 +96,7 @@ export default function UpcomingEvent() {
                 </div>
                 <div  className='flex flex-col w-full lg:w-[28%]'>
                     <div className='bg-white h-[60vh] lg:h-[377.038px] w-full mx-auto relative'>
-                        <Link href="/card-stack/students">
+                        
                             
                         <Image
                             src="https://images.pexels.com/photos/8879768/pexels-photo-8879768.jpeg"
@@ -105,7 +105,7 @@ export default function UpcomingEvent() {
                             className='object-cover'
                         />
                     
-                        </Link>
+                        
                     </div>
                     <div className='text-xs font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
