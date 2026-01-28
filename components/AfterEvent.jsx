@@ -135,7 +135,7 @@ export default function AfterEvent() {
                         </p>
                     </div>
                 </div>
-                <div className="bg-black flex justify-between mt-6 lg:pt-10 pt-5 text-white"
+                <motion.div className="bg-black flex justify-between mt-6 lg:pt-10 pt-5 text-white"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
@@ -297,7 +297,7 @@ export default function AfterEvent() {
                             UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
                         </p>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* smaller devices ke liye */}
                 <motion.div className="lg:hidden  mt-8"

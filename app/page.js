@@ -63,7 +63,7 @@ export default function App() {
       <AnimatePresence>
         {showPreloader && (
           <motion.div
-            className="fixed h-[100dvh] w-full bg-[#eceae5] top-0 left-0 text-[#0e0e0e] z-40 flex flex-col items-center justify-center font-[Neue]"
+            className="fixed h-[100dvh] w-full bg-[#eceae5] top-0 left-0 text-[#0e0e0e] z-[60] flex flex-col items-center justify-center font-[Neue]"
             initial={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 2, ease: [0.77, 0, 0.175, 1] }}
