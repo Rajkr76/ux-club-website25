@@ -41,7 +41,7 @@ export default function Home() {
         <AfterEvent />
         <Video />
         
-        {/* Your New Component */}
+        {/* Your New Horizontal Slider Component */}
         <HorizontalGallery />
 
         {/* Footer */}
