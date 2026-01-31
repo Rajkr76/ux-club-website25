@@ -13,7 +13,7 @@ export default function Home() {
       {/* Animated content wrapper that slides down when menu opens */}
       <motion.div
         className="relative bg-[#0e0e0e]"
-        animate={{ 
+        animate={{
           y: isMenuOpen ? "60vh" : 0 
         }}
         transition={{ 
