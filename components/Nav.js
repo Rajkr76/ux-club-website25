@@ -142,6 +142,7 @@ function MobileNav() {
                       <motion.div {...bigTextAnimation(1.1)}>
                         <Link
                           href="/"
+                          onClick={() => setIsMenuOpen(false)}
                           className={`text-4xl ${
                             pathname === "/" ? "text-[#0e0e0e]" : "text-zinc-500"
                           }`}
@@ -172,6 +173,7 @@ function MobileNav() {
                       <motion.div {...bigTextAnimation(1.3)}>
                         <Link
                           href="/events"
+                          onClick={() => setIsMenuOpen(false)}
                           className={`text-4xl ${
                             pathname === "/events"
                               ? "text-[#0e0e0e]"
@@ -206,6 +208,7 @@ function MobileNav() {
                       <motion.div {...bigTextAnimation(1.5)}>
                         <Link
                           href="/members"
+                          onClick={() => setIsMenuOpen(false)}
                           className={`text-4xl ${
                             pathname === "/members"
                               ? "text-[#0e0e0e]"
