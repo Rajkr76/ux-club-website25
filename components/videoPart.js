@@ -2,7 +2,7 @@
 
 export default function VideoPart() {
     return (
-        <div className="w-full bg-black lg:pt-30 pb-10 lg:px-6 px-4 ">
+        <div className="w-full bg-black lg:pt-30 pb-5 lg:px-6 px-4 ">
             <div  className="flex justify-between items-center text-xs font-bold font-[Neue]  text-white mb-3">
                 <h1 className="">
                     005

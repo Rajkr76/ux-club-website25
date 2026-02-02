@@ -69,19 +69,15 @@ export default function HorizontalGallery() {
 
   return (
     // CHANGED: Reduced height from h-[80vw] to h-[60vw]
-    <div className="w-full h-[60vw] bg-black text-[#eceae5] font-[Neue] overflow-hidden relative flex flex-col px-[3vw]">
+    <div className="w-full h-[vh] bg-black text-[#eceae5] font-[Neue] overflow-hidden relative flex flex-col p-[3vw]">
       
       <div className="flex justify-between items-start w-full z-20 relative shrink-0">
-        <div>
-           <h1 className="font-[Neue] font-semibold text-[#ECEAE5] text-[6vw] leading-[0.8] tracking-tight">
+        <div className='px-3'>
+           <h1 className="font-[Neue] font-semibold lg:text-2xl xl:text-2xl  text-lg leading-[0.8] tracking-tight">
              Activities <br />
            </h1>
         </div>
-        {/* <div className="hidden sm:flex gap-[3vw] text-[0.7vw] font-bold text-gray-500 mt-[1vw]">
-            <span>14 22</span>
-            <span>New York, NY</span>
-            <span>77%</span>
-        </div> */}
+      
       </div>
 
       <div className="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2vw] font-light opacity-20 pointer-events-none z-0">
@@ -91,7 +87,7 @@ export default function HorizontalGallery() {
       <div className="flex-1 w-full flex items-end justify-center gap-[15vw] relative z-10 pb-[4vw]">
         
         {/* Left Image Container */}
-        <div className="relative group w-[18vw] aspect-[3/4] shrink-0">
+        <div className="relative group w-[27vw] h-[15vh] aspect-[3/4] shrink-0">
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handlePrev}></div>
            
@@ -135,7 +131,7 @@ export default function HorizontalGallery() {
 
 
         {/* Right Image Container (Square aspect ratio) */}
-        <div className="relative group w-[36vw] aspect-[1/1] shrink-0">
+        <div className="relative group w-[45vw] h-[27vh] aspect-[1/1] shrink-0">
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handleNext}></div>
            
