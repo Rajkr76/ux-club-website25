@@ -6,26 +6,26 @@ import Image from "next/image";
 const items = [
   {
     id: 2,
-    model: "M_002",
-    name: "Side_Table",
+    name: "Bazzigar",
+    date: "2025",
     img: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?q=80&w=1000&auto=format&fit=crop",
   },
   {
     id: 3,
-    model: "M_008",
-    name: "Console",
+    name: "U. Inn.",
+    date: "2023",
     img: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=1000&auto=format&fit=crop",
   },
   {
     id: 4,
-    model: "M_004",
-    name: "Object",
+    name: "Reflux",
+    date: "2024",
     img: "https://images.unsplash.com/photo-1579541814924-49fef17c5be5?q=80&w=1000&auto=format&fit=crop",
   },
   {
     id: 5,
-    model: "M_019",
-    name: "Chair",
+    name: "Desg&code",
+    date: "2022",
     img: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1000&auto=format&fit=crop",
   },
 ];
@@ -72,9 +72,9 @@ export default function HorizontalGallery() {
     <div className="w-full  bg-black text-[#eceae5] font-[Neue] overflow-hidden relative flex flex-col ">
       
       <div className="flex justify-between items-start w-full z-20 relative">
-        <div className='xl:px-8 lg:px-7 px-5 xl:py-6 lg:py-6 py-2  '>
-           <h1 className="font-[Neue] absolute font-semibold lg:text-7xl xl:text-7xl text-2xl tracking-snug">
-             Activities 
+        <div className='xl:px-7 lg:px-7 px-5 xl:py-6 lg:py-6 py-2  '>
+           <h1 className="font-[Neue] absolute font-semibold lg:text-7xl xl:text-7xl text-base tracking-snug lg:tracking-snug xl:tracking-snug">
+             OUR GALLERY
            </h1>
         </div>
       
@@ -84,10 +84,10 @@ export default function HorizontalGallery() {
         +
       </div> */}
 
-      <div className="flex-1 w-full flex items-end justify-center xl:gap-[48vw] lg:gap-[46vw] gap-[15vw] relative z-10 ">
+      <div className="flex-1 w-full flex items-end justify-center xl:gap-[48vw] lg:gap-[46vw] gap-[18vw] relative z-10 xl:pb-15 lg:pb-15 pb-8">
         
         {/* Left Image Container */}
-        <div className="relative group xl:w-[18vw] lg:w-[19vw] xl:h-[50vh] lg:h-[38vh] w-[27vw] h-[18vh] aspect-[3/4] ">
+        <div className="relative group xl:w-[18vw] lg:w-[19vw] xl:h-[50vh] lg:h-[38vh] w-[27vw] h-[16vh] aspect-[3/4] ">
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handlePrev}></div>
            
@@ -116,17 +116,18 @@ export default function HorizontalGallery() {
                    className="object-cover"
                    sizes="20vw"
                 />
-                
-                <motion.div 
-                   className="absolute -bottom-[3vw] left-0 w-full flex justify-between text-[0.9vw] text-[#eceae5] font-bold"
-                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-                >
-                    <span className="hidden md:inline">00{activeItem.id} / {activeItem.model}</span>
-                    <span className="md:hidden">{activeItem.model}</span>
-                    <span className="uppercase">{activeItem.name}</span>
-                </motion.div>
              </motion.div>
            </AnimatePresence>
+           <motion.div 
+              className="absolute -bottom-6 mt-2 w-full flex justify-between  text-xs md:text-[0.9vw] text-[#eceae5] font-bold "
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+           >
+               <span className="">{activeItem.name}</span>
+               <div className="leading-tight">
+                 <div className=" ">{activeItem.date}</div>
+               </div>
+           </motion.div>
+           
         </div>
 
 
@@ -160,17 +161,18 @@ export default function HorizontalGallery() {
                    className="object-cover"
                    sizes="50vw"
                 />
-
-                <motion.div 
-                   className="absolute -bottom-[3vw] left-0 w-full flex justify-between text-[1.1vw] text-[#eceae5] font-bold"
-                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-                >
-                     <span className="hidden md:inline">00{nextItem.id} / {nextItem.model}</span>
-                     <span className="md:hidden">{nextItem.model}</span>
-                    <span className="uppercase tracking-widest">{nextItem.name}</span>
-                </motion.div>
              </motion.div>
            </AnimatePresence>
+
+           <motion.div 
+              className="absolute -bottom-6 mt-2 w-full flex justify-between text-xs md:text-[1.1vw] text-[#eceae5] font-bold"
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
+           >
+                <span className="">{nextItem.name}</span>
+               <div className=" leading-snug">
+                 <div className="tracking-snug">{nextItem.date}</div>
+               </div>
+           </motion.div>
         </div>
 
       </div>

@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const items = [
   // Core Team
@@ -205,33 +206,34 @@ export default function ImagessPage() {
 
       <div className="w-full z-10">
         {items.map((item, idx) => (
-          
-          <div
+          <Link
             key={idx}
-            className="w-full flex items-center justify-between px-3 py-3  transition-all duration-500 ease-out cursor-pointer group"
-            style={{ background: idx % 2 === 0 ? '#000000' : '#0a0a0a' }}
-            onMouseEnter={() => handleMouseEnter(idx)}
-            onMouseLeave={handleMouseLeave}
+            href={`/card-stack/students?name=${encodeURIComponent(item.name)}`}
+            className="block"
           >
-            <span className=" lg:block hidden font-semibold font-mono  text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
-              {String(idx + 1).padStart(3, '0')}
-            </span>
-            <span className="lg:hidden  text-xs font-mono text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
-              {String(idx + 1).padStart(3, '0')}
-            </span>
-            <span className='lg:block hidden font-semibold font-[Neue] mx-[15rem] flex-1 text-left  text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
-            <span className='lg:hidden font-[Neue] mx-[2rem] flex-1 text-left  text-xs font-semibold text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
-            
-            <span className="lg:block hidden font-mono font-semibold text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
-              {item.team}
-            </span>
-            <span className="lg:hidden text-xs font-mono font-semibold text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
-              {item.team}
-            </span>
-            
-            {/* <div className="w-6 h-6 rounded-full bg-gray-300 transition-all duration-500 ease-out group-hover:bg-white opacity-60 group-hover:opacity-100"></div> */}
-          </div>
-         
+            <div
+              className="w-full flex items-center justify-between px-3 py-3 transition-all duration-500 ease-out cursor-pointer group"
+              style={{ background: idx % 2 === 0 ? '#000000' : '#0a0a0a' }}
+              onMouseEnter={() => handleMouseEnter(idx)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span className="lg:block hidden font-semibold font-mono text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
+                {String(idx + 1).padStart(3, '0')}
+              </span>
+              <span className="lg:hidden text-xs font-mono text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
+                {String(idx + 1).padStart(3, '0')}
+              </span>
+              <span className='lg:block hidden font-semibold font-[Neue] mx-[15rem] flex-1 text-left text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
+              <span className='lg:hidden font-[Neue] mx-[2rem] flex-1 text-left text-xs font-semibold text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
+              
+              <span className="lg:block hidden font-mono font-semibold text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
+                {item.team}
+              </span>
+              <span className="lg:hidden text-xs font-mono font-semibold text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
+                {item.team}
+              </span>
+            </div>
+          </Link>
         ))}
       </div>
 

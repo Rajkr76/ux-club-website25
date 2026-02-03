@@ -1,52 +1,102 @@
 
 'use client'
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
- 
-const facultyMembers = [
+import { motion,AnimatePresence } from 'framer-motion';
+import { useSearchParams } from 'next/navigation';
+
+const teamInfo = [
   {
-    img: 'https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format',
-    name: 'Dr. Ananya Sharma',
-    designation: 'Faculty Advisor – UX Club',
-    department: 'D&I',
-    expertise: ['User Experience Design', 'Human–Computer Interaction', 'Design Thinking'],
-    availability: 'Weekly Mentorship Sessions',
-    role: 'Guides club strategy ',
-    affiliation: 'College Faculty',
-    bio:
-      'Provides academic guidance and mentorship to UX Club members, helping bridge design theory with practical, industry-relevant applications.',
+    img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'Tech Team',
+    department: 'TECH',
+    lead: { name: 'yeshu agarwal' },
+    coLead: { name: 'jhalak sahgal' },
+    responsibilities: ['Website Development', 'App Projects', 'Tech Workshops'],
+    meetingSchedule: 'Weekly Leadership Meetings',
+    role: 'Overall club management',
+    bio: 'The Tech Team is the backbone of UX Club. They manage the club\'s website, develop and maintain any apps or tech projects, and conduct workshops to teach members about various technologies related to UX design. They ensure that the club stays at the forefront of technological advancements in the UX field.',
   },
   {
-    img: 'https://cdn.pixabay.com/photo/2016/11/26/23/45/dog-1861839_960_720.jpg',
-    name: 'Prof. Rahul Verma',
-    designation: 'Faculty Coordinator',
-    department: 'IT',
-    expertise: ['Frontend Development', 'Web Technologies', 'Accessibility'],
-    availability: 'Bi-weekly Technical Sessions',
-    role: 'technical initiatives',
-    affiliation: 'College Faculty',
-    bio:
-      'Supports frontend and technical learning within the club, ensuring best practices in modern web development and accessibility standards.',
+    img: 'https://images.unsplash.com/photo-1565350897149-38dfafa81d83?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'PR Team',
+    department: 'PR ',
+    lead: { name: 'Yash Verma' },
+    coLead: { name: 'Atherva Sahai' },
+    responsibilities: ['Outreach', 'Sponsorships', 'Networking'],
+    meetingSchedule: 'PR Planning Sessions',
+    role: 'Public relations & communications',
+    bio: 'The PR Team is the face of UX Club. They handle all external communications, manage social media channels, coordinate event promotions, and build relationships with sponsors and partners. They ensure that UX Club maintains a strong presence both on campus and in the wider UX community.',
   },
   {
-    img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=500&auto=format',
-    name: 'Dr. Neha Iyer',
-    designation: 'Mentor – Product & Research',
-    department: 'MENTOR',
-    expertise: ['User Research', 'Product Strategy', 'Usability Testing'],
-    availability: 'Project-based Mentorship',
-    role: 'Mentor student activities',
-    affiliation: 'College Faculty',
-    bio:
-      'Mentors student-led projects and hackathons, focusing on research-driven design decisions and creating strong, portfolio-ready outcomes.',
+    img: 'https://images.unsplash.com/photo-1690191794328-b2c75ebd86df?q=80&w=1348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'Content Team',
+    department: 'CONTENT',
+    lead: { name: 'Yeshu Agarwal' },
+    coLead: { name: 'Jhalak Sahgal' },
+    responsibilities: ['Blog Writing', 'Documentation', 'Newsletter'],
+    meetingSchedule: 'Weekly Dev Sprints',
+    role: 'Content creation & curation',
+    bio: 'The content team is responsible for creating and curating valuable content for UX Club. They write blog posts, manage documentation, produce newsletters, and create educational materials to help members stay informed and engaged with the latest in UX design.',
   },
+  {
+    img: 'https://images.unsplash.com/photo-1576595580361-90a855b84b20?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'Design Team',
+    department: 'DESIGN',
+    lead: { name: 'Harsh Mahesh Math' },
+    coLead: { name: 'Pranjali Sharma' },
+    responsibilities: ['designing posters' , 'social media graphics' , 'ui/ux projects'],
+    meetingSchedule: 'Weekly Editorial Meetings',
+    role: 'Visual design & branding',
+    bio: 'The design team crafts the visual identity of UX Club. They design event posters, social media graphics, and UI/UX projects, ensuring a consistent and engaging brand presence. They also conduct design workshops to upskill members in tools like Figma and Adobe Suite.',
+  },
+  {
+    img: 'https://plus.unsplash.com/premium_photo-1661767467261-4a4bed92a507?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'Event Team',
+    department: 'EVENTS',
+    lead: { name: 'atharav sahai' },
+    coLead: { name: 'Prateek' },
+    responsibilities: ['Event Planning', 'Logistics', 'Speaker Coordination'],
+    meetingSchedule: 'Bi-weekly Strategy Sessions',
+    role: 'Event planning & management',
+    bio: 'The Event Team builds bridges between UX Club and the outside world. They manage sponsor relationships, coordinate with other clubs, handle media outreach, recruit new members, and maintain relationships with alumni and industry professionals.',
+  },
+  {
+    img: 'https://plus.unsplash.com/premium_photo-1770077133854-1e173086b1c3?q=80&w=980&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'Social Media Team',
+
+    department: 'SOCIAL MEDIA',
+    lead: { name: 'Nitin' },
+    coLead: { name: 'Archisha Nigam' },
+    responsibilities: ['Visual Design', 'UI/UX Projects', 'Brand Identity'],
+    meetingSchedule: 'Weekly Design Critiques',
+    role: 'Social media management & branding',
+    bio: 'The Design Team is the creative heart of UX Club. They create stunning visuals for events, maintain brand consistency, design social media graphics, work on UI/UX projects, and conduct design workshops to upskill members in tools like Figma and Adobe Suite.',
+  },
+  
 ];
 
 
-export default function ProductDetail() {
-  const [current, setCurrent] = useState(0);
+export default function TeamDetail() {
+  const [showJoinModal, setShowJoinModal] = useState(false);
+  const searchParams = useSearchParams();
+  const nameParam = searchParams.get('name');
+  
+  // Find the team index based on the name parameter
+  const initialIndex = nameParam 
+    ? teamInfo.findIndex(t => t.name === decodeURIComponent(nameParam))
+    : 0;
+  
+  const [current, setCurrent] = useState(initialIndex >= 0 ? initialIndex : 0);
   const [scrollY, setScrollY] = useState(0);
-  const prod = facultyMembers[current];
+  const team = teamInfo[current];
+
+  // Update current when URL parameter changes
+  useEffect(() => {
+    if (nameParam) {
+      const index = teamInfo.findIndex(t => t.name === decodeURIComponent(nameParam));
+      if (index >= 0) setCurrent(index);
+    }
+  }, [nameParam]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,30 +118,24 @@ export default function ProductDetail() {
     return `inset(${clipValue}% 0 0 0)`;
   };
 
-  const prev = () => setCurrent((i) => (i === 0 ? facultyMembers.length - 1 : i - 1));
-  const next = () => setCurrent((i) => (i === facultyMembers.length - 1 ? 0 : i + 1));
+  const prev = () => setCurrent((i) => (i === 0 ? teamInfo.length - 1 : i - 1));
+  const next = () => setCurrent((i) => (i === teamInfo.length - 1 ? 0 : i + 1));
 
   return (
     <div className="min-h-screen w-full bg-black text-[#ECEAE5] font-[Neue] pb-24">
-      <div className="w-full  px-3.5 py-15">
+      <div className="w-full px-3.5 py-15">
         {/* Image Slider Section */}
         <div className="flex justify-center mb-8 relative">
           <div className="relative">
             <img
-              src={prod.img}
-              alt={prod.name}
+              src={team.img}
+              alt={team.name}
               className="w-[375px] h-[375px] md:w-[625px] md:h-[625px] object-cover"
             />
-            {/* Close button */}
-            {/* <div className="absolute top-4 right-4">
-              <span className="text-white bg-black bg-opacity-50 px-2 py-1 text-sm cursor-pointer hover:bg-opacity-75 transition">
-                Close
-              </span>
-            </div> */}
             {/* Detail View button */}
             <div className="absolute bottom-4 right-4">
               <button className="border border-[#ECEAE5] bg-black text-[#ECEAE5] px-3 py-1 text-xs font-[Neue] hover:bg-[#ECEAE5] hover:text-black transition">
-                (DETAIL VIEW)
+                (TEAM OVERVIEW)
               </button>
             </div>
           </div>
@@ -100,7 +144,7 @@ export default function ProductDetail() {
         {/* Navigation Controls - Below Image */}
         <div className="flex items-center justify-center mb-12">
           <div className="flex items-center gap-4">
-            <span className="text-sm text-[#ECEAE5]">{current + 1}/{facultyMembers.length}</span>
+            <span className="text-sm text-[#ECEAE5]">{current + 1}/{teamInfo.length}</span>
             <div className="flex gap-3">
               <button
                 onClick={prev}
@@ -121,33 +165,22 @@ export default function ProductDetail() {
           {/* Title Row */}
           <div className="flex justify-between items-start mb-5">
             <div className="flex-1">
-              <h1 className="hidden lg:block text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                {prod.name}
+              <h1 className="hidden lg:block xl:text-5xl lg:text-5xl md:text-5xl  font-bold leading-tight">
+                {team.name}
               </h1>
-              <h1 className="lg:hidden text-xl   font-semibold leading-tight">
-                {prod.name}
+              <h1 className="lg:hidden text-xl md:text-4xl font-semibold leading-tight">
+                {team.name}
               </h1>
             </div>
             <div className="text-right">
-              <h2 className="lg:hidden text-xl md:text-3xl font-semibold text-[#ECEAE5]">
-                {prod.department}
+              <h2 className="lg:hidden text-xl md:text-4xl font-semibold text-[#ECEAE5]">
+                {team.department}
               </h2>
-              <h2 className="hidden lg:block text-2xl md:text-3xl font-semibold text-[#ECEAE5]">
-                {prod.department}
+              <h2 className="hidden lg:block xl:text-5xl lg:text-5xl  font-semibold text-[#ECEAE5]">
+                {team.department}
               </h2>
-              {/* Plus icon */}
-              {/* <div className="mt-8">
-                <span className="text-4xl font-light">+</span>
-              </div> */}
             </div>
           </div>
-
-          {/* About Section */}
-          {/* <div className="mb-12">
-            <p className="text-lg md:text-xl lg:text-2xl leading-relaxed font-medium">
-              {prod.bio}
-            </p>
-          </div> */}
 
           {/* Specifications Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1px_1fr] gap-8 mb-12">
@@ -155,88 +188,72 @@ export default function ProductDetail() {
             <div className="space-y-8">
               {/* Bio in left side */}
               <div className="mb-8">
-                <p className='text-xs mb-2'>( About )</p>
+                <p className='text-xs mb-2'>( What We Do )</p>
                 <p className="hidden lg:block text-lg md:text-xl lg:text-2xl leading-relaxed font-semibold">
-                  {prod.bio}
+                  {team.bio}
                 </p>
-                <p className="lg:hidden text-sm  leading-snug md:text-xl font-semibold">
-                  {prod.bio} 
+                <p className="lg:hidden text-sm leading-snug md:text-xl font-semibold">
+                  {team.bio} 
                 </p>
               </div>
+
               <div>
-                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(NAME)</span>
-                
-                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(NAME)</span>
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold mb-2">(TEAM LEAD)</span>
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(TEAM LEAD)</span>
                 <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
-                initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
                 />
                 <div className="text-right">
-                  <span className="hidden lg:block text-3xl md:text-4xl font-bold">{prod.name}</span>
-
-                  <span className="lg:hidden text-xl md:text-4xl font-bold">{prod.name}</span>
+                  <span className="hidden lg:block text-3xl md:text-4xl font-bold">{team.lead.name}</span>
+                  <span className="lg:hidden text-xl md:text-4xl font-bold">{team.lead.name}</span>
                 </div>
               </div>
 
               <div>
-                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(designation)</span>
-
-                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(designation)</span>
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold mb-2">(CO-LEAD)</span>
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(CO-LEAD)</span>
                 <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
-                initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 1.3, ease: "easeInOut" }} />
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 1.3, ease: "easeInOut" }}
+                />
                 <div className="text-right">
-                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.designation}</span>
-
-                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.designation}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{team.coLead.name}</span>
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{team.coLead.name}</span>
                 </div>
               </div>
 
               <div>
-                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(AVAILABILITY)</span>
-
-                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(AVAILABILITY)</span>
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold mb-2">(MEETING SCHEDULE)</span>
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(MEETING SCHEDULE)</span>
                 <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
-                initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 1.4, ease: "easeInOut" }} />
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 1.4, ease: "easeInOut" }}
+                />
                 <div className="text-right">
-                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.availability}</span>
-
-                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.availability}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{team.meetingSchedule}</span>
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{team.meetingSchedule}</span>
                 </div>
               </div>
 
               <div>
-                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(AFFILIATION)</span>
-                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(AFFILIATION)</span>
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold mb-2">(PRIMARY ROLE)</span>
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(PRIMARY ROLE)</span>
                 <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
-                initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }} />
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 1.6, ease: "easeInOut" }}
+                />
                 <div className="text-right">
-                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.affiliation}</span>
-                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.affiliation}</span>
-                </div>
-              </div>
-
-              <div>
-                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(ROLE)</span>
-                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(ROLE)</span>
-                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
-                initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 1.6, ease: "easeInOut" }} />
-                <div className="text-right">
-                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.role}</span>
-                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.role}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{team.role}</span>
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{team.role}</span>
                 </div>
               </div>
             </div>
@@ -244,52 +261,91 @@ export default function ProductDetail() {
             {/* Center Column - Vertical Line */}
             <div className="hidden lg:flex justify-center">
               <div className="w-[1px] h-full bg-white" />
-
             </div>
 
             {/* Right Column */}
             <div className="space-y-4">
-              <div className="bg-white text-black px-4 py-4 flex justify-between items-center">
-                <span className="font-mono text-sm font-bold">EXPERTISE</span>
-                <span className="hidden lg:block  text-lg font-bold">{prod.expertise[0]} ▼</span>
-
-                <span className="lg:hidden text-base font-bold">{prod.expertise[0]} ▼</span>
+              <div className="bg-white text-black px-4 py-4">
+                <span className="font-mono text-sm font-bold block mb-3">KEY RESPONSIBILITIES</span>
+                <div className="space-y-2">
+                  {team.responsibilities.map((resp, idx) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <span className="text-xs">→</span>
+                      <span className="text-sm font-semibold">{resp}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              
-               <motion.button
-      className="relative w-full overflow-hidden border border-[#ECEAE5] px-6 py-4 font-mono text-sm text-[#ECEAE5] bg-transparent"
-      initial="rest"
-      whileHover="hover"
-      animate="rest"
-    >
-      {/* Sliding background */}
-      <motion.div
-        className="absolute inset-0 bg-[#ECEAE5]"
-        variants={{
-          rest: { x: '-100%' },
-          hover: { x: '0%' },
-        }}
-        transition={{
-          duration: 0.5,
-          ease: 'easeOut',
-        }}
-      />
-      {/* Button text */}
-      <motion.span
-        className="relative z-10"
-        variants={{
-          rest: { color: '#ECEAE5' },
-          hover: { color: '#000000' },
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        INQUIRE ABOUT FACULTY
-      </motion.span>
-    </motion.button>
+               
+              <motion.button
+                className="relative w-full overflow-hidden border border-[#ECEAE5] px-6 py-4 font-mono text-sm text-[#ECEAE5] bg-transparent"
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
+                onClick={() => setShowJoinModal(true)}
+              >
+                {/* Sliding background */}
+                <motion.div
+                  className="absolute inset-0 bg-[#ECEAE5]"
+                  variants={{
+                    rest: { x: '-100%' },
+                    hover: { x: '0%' },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: 'easeOut',
+                  }}
+                />
+                {/* Button text */}
+                <motion.span
+                  className="relative z-10"
+                  variants={{
+                    rest: { color: '#ECEAE5' },
+                    hover: { color: '#000000' },
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  JOIN THIS TEAM
+                </motion.span>
+              </motion.button>
             </div>
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {showJoinModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+            onClick={() => setShowJoinModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.96, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 280, damping: 22 }}
+              className="w-full max-w-md rounded-2xl border border-[#ECEAE5] bg-[#0e0e0e] p-6 text-center text-[#ECEAE5] shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2 className="text-lg font-semibold">
+                Joining team page is coming soon!
+              </h2>
+              <p className="mt-2 text-sm text-[#cfcac2]">
+                Meanwhile, you can reach out to the team leads to join the team.
+              </p>
+              <button
+                onClick={() => setShowJoinModal(false)}
+                className="mt-5 rounded-lg border border-[#ECEAE5] px-4 py-2 text-sm font-mono text-[#ECEAE5] transition hover:bg-[#ECEAE5] hover:text-black"
+              >
+                Okay
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Sticky Footer */}
       <div 
@@ -309,8 +365,8 @@ export default function ProductDetail() {
             <span className="text-xl md:text-4xl font-light">Prev</span>
             <div className="w-16 h-16 md:w-24 md:h-24 bg-gray-200">
               <img
-                src={facultyMembers[(current === 0 ? facultyMembers.length - 1 : current - 1)].img}
-                alt="Previous faculty"
+                src={teamInfo[(current === 0 ? teamInfo.length - 1 : current - 1)].img}
+                alt="Previous team"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -323,8 +379,8 @@ export default function ProductDetail() {
           >
             <div className="w-16 h-16 md:w-24 md:h-24 bg-gray-200">
               <img
-                src={facultyMembers[(current === facultyMembers.length - 1 ? 0 : current + 1)].img}
-                alt="Next faculty"
+                src={teamInfo[(current === teamInfo.length - 1 ? 0 : current + 1)].img}
+                alt="Next team"
                 className="w-full h-full object-cover"
               />
             </div>

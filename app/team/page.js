@@ -6,20 +6,18 @@ import "../../components/features/team/components/TeamPage.css";
 import teamImg from "../../components/features/team/assets/image.jpg";
 import Members from "../card-stack/imagess/page";
 const teams = [
-  { name: "Tech Team", image: teamImg, link: "/team/tech" },
-  { name: "PR Team", image: teamImg, link: "/team/pr" },
-  { name: "Content Team", image: teamImg, link: "/team/content" },
-  { name: "Design Team", image: teamImg, link: "/team/design" },
-  { name: "Event Team", image: teamImg, link: "/team/event" },
-  { name: "Social Media Team", image: teamImg, link: "/team/social" },
+  { name: "Tech Team", image: teamImg},
+  { name: "PR Team", image: teamImg},
+  { name: "Content Team", image: teamImg},
+  { name: "Design Team", image: teamImg},
+  { name: "Event Team", image: teamImg},
+  { name: "Social Media Team", image: teamImg},
 ];
 
 const TeamPage = () => {
   const percentRef = useRef(null);
   const titleBarRef = useRef(null);
   const [showMembers, setShowMembers] = useState(false);
-
-  const handleToggle = () => setShowMembers(!showMembers);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,7 +84,9 @@ const TeamPage = () => {
       ) : (
         <div className="team-grid ">
           {teams.map((team, index) => (
-            <Link href={team.link} key={index} className="team-card ">
+            <Link 
+              href={`/card-stack/teacher?name=${encodeURIComponent(team.name)}`}
+            key={index} className="team-card ">
               <h4 className="team-name font-mono ">{team.name}</h4>
               <div className="placeholder " style={{ position: 'relative' }}>
                 <Image src={team.image} alt={team.name} className="team-image" fill sizes="(max-width: 800px) 50vw, 30vw" style={{ objectFit: 'cover' }} />

@@ -10,6 +10,7 @@ import { navigate } from "next/dist/client/components/segment-cache/navigation";
 
 // Ported Original Nav for Mobile
 function MobileNav() {
+  const [showJoinModal, setShowJoinModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -172,15 +173,15 @@ function MobileNav() {
                     <div className="overflow-hidden">
                       <motion.div {...bigTextAnimation(1.3)}>
                         <Link
-                          href="/events"
+                          href="/team"
                           onClick={() => setIsMenuOpen(false)}
                           className={`text-4xl ${
-                            pathname === "/events"
+                            pathname === "/team"
                               ? "text-[#0e0e0e]"
                               : "text-zinc-500"
                           }`}
                         >
-                          Events
+                          Members
                         </Link>
                       </motion.div>
                     </div>
@@ -188,7 +189,7 @@ function MobileNav() {
                       <motion.div
                         {...bigTextAnimation(1.4)}
                         className={`text-4xl ${
-                          pathname === "/events"
+                          pathname === "/team"
                             ? "text-[#0e0e0e]"
                             : "text-zinc-500"
                         }`}
@@ -207,15 +208,21 @@ function MobileNav() {
                     <div className="overflow-hidden">
                       <motion.div {...bigTextAnimation(1.5)}>
                         <Link
-                          href="/members"
-                          onClick={() => setIsMenuOpen(false)}
+                          href="/"
+                          onClick={() => {{
+                            setShowJoinModal(true);
+                            setIsMenuOpen(true);
+                            
+
+                          }
+                          }}
                           className={`text-4xl ${
-                            pathname === "/members"
+                            pathname === "/contacts"
                               ? "text-[#0e0e0e]"
                               : "text-zinc-500"
                           }`}
                         >
-                          Members
+                          contacts
                         </Link>
                       </motion.div>
                     </div>
@@ -223,7 +230,7 @@ function MobileNav() {
                       <motion.div
                         {...bigTextAnimation(1.6)}
                         className={`text-4xl ${
-                          pathname === "/members"
+                          pathname === "/contacts"
                             ? "text-[#0e0e0e]"
                             : "text-zinc-500"
                         }`}
@@ -237,6 +244,40 @@ function MobileNav() {
                     className="w-full bg-[#0e0e0e] h-[1px]"
                   ></motion.div>
                 </div>
+
+                <AnimatePresence>
+        {showJoinModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+            onClick={() => setShowJoinModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.96, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 280, damping: 22 }}
+              className="w-full max-w-md rounded-2xl border border-[#ECEAE5] bg-[#0e0e0e] p-6 text-center text-[#ECEAE5] shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2 className="text-lg font-semibold">
+                Contact page is coming soon!
+              </h2>
+              <p className="mt-2 text-sm text-[#cfcac2]">
+                Meanwhile, you can reach out to the our email uxclub@vitbhopal.ac.in to contact.
+              </p>
+              <button
+                onClick={() => setShowJoinModal(false)}
+                className="mt-5 rounded-lg border border-[#ECEAE5] px-4 py-2 text-sm font-mono text-[#ECEAE5] transition hover:bg-[#ECEAE5] hover:text-black"
+              >
+                Okay
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
               </div>
             </div>
 
