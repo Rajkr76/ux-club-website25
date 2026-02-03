@@ -1,6 +1,6 @@
 
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion,AnimatePresence } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 
@@ -76,7 +76,7 @@ const teamInfo = [
 ];
 
 
-export default function TeamDetail() {
+function TeamDetailContent() {
   const [showJoinModal, setShowJoinModal] = useState(false);
   const searchParams = useSearchParams();
   const nameParam = searchParams.get('name');
@@ -389,5 +389,13 @@ export default function TeamDetail() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function TeamDetail() {
+  return (
+    <Suspense fallback={<div className="min-h-screen w-full bg-black flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
+      <TeamDetailContent />
+    </Suspense>
   );
 }

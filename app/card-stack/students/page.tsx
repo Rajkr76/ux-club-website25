@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 
@@ -123,9 +123,9 @@ const studentMembers = [
   { name: "Pola Eekshana", team: "Social Media Team", img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format", designation: "Social Media Member", skills: ["Analytics", "Insights", "Performance Tracking"], year: "2nd Year", role: "Social analytics", branch: "Computer Science", bio: "Analyzes social media performance and provides insights." },
 ];
 
-export default function StudentDetail() {
+function StudentDetailContent() {
   const searchParams = useSearchParams();
-  const nameParam = searchParams.get('name');
+  const nameParam = searchParams?.get('name');
   
   // Find the student index based on the name parameter
   const initialIndex = nameParam 
@@ -408,5 +408,20 @@ export default function StudentDetail() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function StudentDetail() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen w-full bg-black text-[#ECEAE5] font-[Neue] flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#ECEAE5] mx-auto mb-4"></div>
+          <p>Loading student details...</p>
+        </div>
+      </div>
+    }>
+      <StudentDetailContent />
+    </Suspense>
   );
 }
