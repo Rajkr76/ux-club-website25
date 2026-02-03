@@ -69,11 +69,11 @@ export default function HorizontalGallery() {
 
   return (
     // CHANGED: Reduced height from h-[80vw] to h-[60vw]
-    <div className="w-full h-[vh] bg-black text-[#eceae5] font-[Neue] overflow-hidden relative flex flex-col p-[3vw]">
+    <div className="w-full  bg-black text-[#eceae5] font-[Neue] overflow-hidden relative flex flex-col p-[3vw]">
       
       <div className="flex justify-between items-start w-full z-20 relative shrink-0">
         <div className='px-3'>
-           <h1 className="font-[Neue] font-semibold lg:text-2xl xl:text-2xl  text-lg leading-[0.8] tracking-tight">
+           <h1 className="font-[Neue] font-semibold lg:text-7xl xl:text-7xl  leading-[0.8] tracking-tight">
              Activities <br />
            </h1>
         </div>
@@ -84,10 +84,10 @@ export default function HorizontalGallery() {
         +
       </div>
 
-      <div className="flex-1 w-full flex items-end justify-center gap-[15vw] relative z-10 pb-[4vw]">
+      <div className="flex-1 w-full flex items-end justify-center xl:gap-[48vw] lg:gap-[46vw] gap-[15vw] relative z-10 pb-[4vw]">
         
         {/* Left Image Container */}
-        <div className="relative group w-[27vw] h-[15vh] aspect-[3/4] shrink-0">
+        <div className="relative group xl:w-[18vw] lg:w-[19vw] xl:h-[50vh] lg:h-[38vh] w-[27vw] h-[18vh] aspect-[3/4] shrink-0">
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handlePrev}></div>
            
@@ -131,7 +131,7 @@ export default function HorizontalGallery() {
 
 
         {/* Right Image Container (Square aspect ratio) */}
-        <div className="relative group w-[45vw] h-[27vh] aspect-[1/1] shrink-0">
+        <div className="relative group xl:w-[30vw] lg:w-[30vw] w-[45vw] xl:h-[78vh] lg:h-[68vh] h-[27vh] aspect-[1/1] shrink-0">
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handleNext}></div>
            
