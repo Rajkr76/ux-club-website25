@@ -8,25 +8,25 @@ const items = [
     id: 2,
     name: "Bazzigar",
     date: "2025",
-    img: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?q=80&w=1000&auto=format&fit=crop",
+    img: "/bazzigar1.jpeg",
   },
   {
     id: 3,
-    name: "U. Inn.",
+    name: "Bazzigar",
     date: "2023",
-    img: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=1000&auto=format&fit=crop",
+    img: "/bazzigar3.jpeg",
   },
   {
     id: 4,
     name: "Reflux",
     date: "2024",
-    img: "https://images.unsplash.com/photo-1579541814924-49fef17c5be5?q=80&w=1000&auto=format&fit=crop",
+    img: "/bazzigar2.jpeg",
   },
   {
     id: 5,
-    name: "Desg&code",
+    name: "unleased",
     date: "2022",
-    img: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1000&auto=format&fit=crop",
+    img: "/unleased2.jpeg",
   },
 ];
 
@@ -73,8 +73,8 @@ export default function HorizontalGallery() {
       
       <div className="flex justify-between items-start w-full z-20 relative">
         <div className='xl:px-7 lg:px-7 px-5 xl:py-6 lg:py-6 py-2  '>
-           <h1 className="font-[Neue] absolute font-semibold lg:text-7xl xl:text-7xl text-base tracking-snug lg:tracking-snug xl:tracking-snug">
-             OUR GALLERY
+           <h1 className="font-[Neue] absolute font-semibold lg:text-7xl xl:text-7xl text-lg tracking-none lg:tracking-none xl:tracking-none">
+             Our Gallery
            </h1>
         </div>
       
@@ -118,7 +118,7 @@ export default function HorizontalGallery() {
                 />
              </motion.div>
            </AnimatePresence>
-           <motion.div 
+           {/* <motion.div 
               className="absolute -bottom-6 mt-2 w-full flex justify-between  text-xs md:text-[0.9vw] text-[#eceae5] font-bold "
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
            >
@@ -126,7 +126,7 @@ export default function HorizontalGallery() {
                <div className="leading-tight">
                  <div className=" ">{activeItem.date}</div>
                </div>
-           </motion.div>
+           </motion.div> */}
            
         </div>
 
@@ -136,9 +136,9 @@ export default function HorizontalGallery() {
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handleNext}></div>
            
-           <div className="hidden md:block absolute -top-[3vw] right-0 text-[0.8vw] font-bold pointer-events-none">
+           {/* <div className="hidden md:block absolute -top-[3vw] right-0 text-[0.8vw] font-bold pointer-events-none">
                05_Images
-           </div>
+           </div> */}
 
            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
              <motion.div
@@ -165,7 +165,7 @@ export default function HorizontalGallery() {
            </AnimatePresence>
 
            <motion.div 
-              className="absolute -bottom-6 mt-2 w-full flex justify-between text-xs md:text-[1.1vw] text-[#eceae5] font-bold"
+              className="absolute xl:-bottom-8 lg:-bottom-8 -bottom-6 mt-2 w-full flex justify-between text-xs md:text-[1.1vw] text-[#eceae5] font-bold"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
            >
                 <span className="">{nextItem.name}</span>

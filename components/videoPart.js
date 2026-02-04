@@ -10,7 +10,7 @@ export default function VideoPart() {
                     M_010
                 </h1>
                 <h1>
-                    Dining Table
+                    VIDEO PART
                 </h1>
             </div>
             <video autoPlay loop muted  >

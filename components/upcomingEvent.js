@@ -71,10 +71,10 @@ export default function UpcomingEvent() {
             <div  className='bg-black min-h-fit w-full lg:flex justify-between px-4 py-5 space-y-6 lg:space-y-0 lg:gap-6 lg:px-6'>
                 <div className='flex flex-col w-full lg:w-[70%]'>
                     <div className='bg-white lg:h-[599.438px] h-[32vh] w-full mx-auto relative'>
-                        <Link href="/card-stack/teacher">
+                        <Link href="/">
                         <Image
-                            src="https://images.pexels.com/photos/9393611/pexels-photo-9393611.jpeg"
-                            alt="Upcoming Event"
+                            src="/unleased.jpg"
+                            alt="past events"
                             fill
                             className='object-cover'
                         />
@@ -89,7 +89,7 @@ export default function UpcomingEvent() {
 
                         <h1>
                             {/* <ScrollReveal as="span"> */}
-                            TEACHER
+                           CLUB MEMBERS
                             {/* </ScrollReveal> */}
                         </h1>
                     </div>

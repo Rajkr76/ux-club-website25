@@ -10,7 +10,6 @@ import { navigate } from "next/dist/client/components/segment-cache/navigation";
 
 // Ported Original Nav for Mobile
 function MobileNav() {
-  const [showJoinModal, setShowJoinModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -210,10 +209,7 @@ function MobileNav() {
                         <Link
                           href="/"
                           onClick={() => {{
-                            setShowJoinModal(true);
-                            setIsMenuOpen(true);
-                            
-
+                            setIsMenuOpen(false);
                           }
                           }}
                           className={`text-4xl ${
@@ -245,7 +241,7 @@ function MobileNav() {
                   ></motion.div>
                 </div>
 
-                <AnimatePresence>
+                {/* <AnimatePresence>
         {showJoinModal && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -277,7 +273,7 @@ function MobileNav() {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
               </div>
             </div>
 
@@ -285,7 +281,7 @@ function MobileNav() {
               <div className="overflow-hidden">
                 <motion.div {...smallTextAnimation(1.7)}>
                   <Link
-                    href="https://www.instagram.com"
+                    href="https://www.instagram.com/uxclub.vitb/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1"
@@ -437,10 +433,27 @@ function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
                     <div className="flex justify-between text-xs font-semibold uppercase tracking-wide mt-auto">
                          <div className="flex flex-col gap-1">
                             <span>Contact</span>
-                            <a href="mailto:uxclub@vitbhopal.ac.in" className="hover:underline">uxclub@vitbhopal.ac.in</a>
+                            <a role="link"
+                                    tabIndex={0}
+                                    onClick={() => {
+                                        window.open(
+                                            "https://mail.google.com/mail/?view=cm&fs=1&to=uxclub@vitbhopal.ac.in&su=Inquiry%20about%20UX%20Club%20and%20Membership&body=Hello%20UX%20Club%20Team,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20club%20and%20how%20to%20join.",
+                                            "_blank"
+                                        );
+                                    }}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            window.open(
+                                                "https://mail.google.com/mail/?view=cm&fs=1&to=uxclub@vitbhopal.ac.in&su=Inquiry%20about%20UX%20Club%20and%20Membership",
+                                                "_blank"
+                                            );
+                                        }
+                                    }}
+                            
+                            className="hover:cursor-pointer hover:underline ">uxclub@vitbhopal.ac.in</a>
                         </div>
                          <div className="flex flex-col gap-1">
-                            <a href="#" className="flex items-center gap-1 hover:underline">
+                            <a target="_blank" href="https://www.instagram.com/uxclub.vitb/" className="flex items-center gap-1 hover:underline">
                                 Instagram <GoArrowUpRight/>
                             </a>
                         </div>
@@ -487,7 +500,7 @@ function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
         <div className="flex items-center justify-end gap-10 w-1/2">
           <div className="flex gap-6 xl:text-[14px] lg:text-[11px] font-semibold text-[#ECEAE5]">
             <Link href="/" className="hover:text-white transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>1.</span> Home</Link>
-            <Link href="/team" className="hover:text-white  transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>2.</span> Index</Link>
+            <Link href="/team" className="hover:text-white  transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>2.</span> TEAMS</Link>
             <button 
                 onClick={toggleMenu} 
                 className={`hover:text-white transition-colors ${isMenuOpen ? "text-[#ECEAE5]" : ""}`}

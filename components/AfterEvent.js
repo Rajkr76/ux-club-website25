@@ -80,7 +80,7 @@ export default function AfterEvent() {
                     </h1>
                     <h1 className="lg:text-7xl xl:text-8xl">
                         {/* <ScrollReveal as="span"> */}
-                            0_19
+                        0_19
                         {/* </ScrollReveal> */}
                     </h1>
                 </div>
@@ -97,12 +97,12 @@ export default function AfterEvent() {
                             <span className='text-base pb-1'>
 
                                 {/* <ScrollReveal as="span"> */}
-                                    (About uxclub)
+                                (About uxclub)
                                 {/* </ScrollReveal> */}</span>
 
                             <span className="lg:text-3xl xl:text-4xl  text-sm leading-snug font-bold font-[Neue] tracking-normal ">
                                 <ScrollReveal as="span" stagger={0.02} delay={0.1} >
-                                   Student-driven community for UX and design thinking.
+                                    Student-driven community for UX and design thinking.
                                 </ScrollReveal>
                             </span>
                         </h1>
@@ -134,21 +134,21 @@ export default function AfterEvent() {
                         </p>
                     </div>
                 </div>
-                <motion.div className="bg-black flex justify-between mt-6 lg:pt-10 pt-5 text-white"
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                <div className="bg-black flex justify-between mt-6 lg:pt-10 pt-5 text-white"
+                    // initial={{ opacity: 0, y: 40 }}
+                    // whileInView={{ opacity: 1, y: 0 }}
+                    // viewport={{ once: false, amount: 0.3 }}
+                    // transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
                     <div className='hidden  lg:relative xl:relative tracking-tight leading-tight lg:block space-y-5 font-[Neue] w-full font-bold  lg:w-[60%] xl:w-[60%] '>
                         <h1 className=" lg:absolute xl:leading-tight xl:tracking-tight xl:absolute lg:left-[20rem] xl:text-xs xl:left-[28rem] text-xs ">
                             {/* <ScrollReveal as="span"> */}
-                                Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
+                            Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
                             {/* </ScrollReveal> */}
                         </h1>
                         <h1 className=" lg:absolute xl:absolute xl:leading-tight xl:tracking-tight xl:left-[28rem] xl:top-[4rem] lg:left-[20rem] lg:top-[5rem] text-xs xl:text-xs ">
                             {/* <ScrollReveal as="span"> */}
-                                UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
+                            UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
                             {/* </ScrollReveal> */}
                         </h1>
                     </div>
@@ -159,7 +159,7 @@ export default function AfterEvent() {
                                 Site links:
                             </li>
                             <li >
-                                <motion.div className="border-t border-b py-3 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                                <motion.div className="border-t  py-3 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                     initial="initial"
                                     whileHover="hover"
                                 >
@@ -202,7 +202,24 @@ export default function AfterEvent() {
 
                             </li>
                             <li>
-                                <motion.div className="border-t border-b py-3 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                                <motion.div
+                                    role="link"
+                                    tabIndex={0}
+                                    onClick={() => {
+                                        window.open(
+                                            "https://mail.google.com/mail/?view=cm&fs=1&to=uxclub@vitbhopal.ac.in&su=Inquiry%20about%20UX%20Club%20and%20Membership&body=Hello%20UX%20Club%20Team,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20club%20and%20how%20to%20join.",
+                                            "_blank"
+                                        );
+                                    }}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter") {
+                                            window.open(
+                                                "https://mail.google.com/mail/?view=cm&fs=1&to=uxclub@vitbhopal.ac.in&su=Inquiry%20about%20UX%20Club%20and%20Membership",
+                                                "_blank"
+                                            );
+                                        }
+                                    }}
+                                    className="border-t py-3 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                     initial="initial"
                                     whileHover="hover"
                                 >
@@ -214,7 +231,9 @@ export default function AfterEvent() {
                                         }}
                                         transition={{ duration: 0.4, ease: "easeInOut" }}
                                     />
-                                    <motion.button className="z-10"
+                                    <motion.button
+
+                                        className="z-10"
                                         variants={{
                                             initial: { color: "#ffffff", marginLeft: "0px" },
                                             hover: { color: "#000000", marginLeft: "15px" },
@@ -244,7 +263,11 @@ export default function AfterEvent() {
 
                             </li>
                             <li>
-                                <motion.div className="border-t border-b py-3 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                                <motion.div 
+                                 onClick ={()=>{
+                                    window.open("https://www.instagram.com/uxclub.vitb/","_blank");
+                                 }}
+                                className="border-t border-b py-3 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                     initial="initial"
                                     whileHover="hover"
                                 >
@@ -296,7 +319,7 @@ export default function AfterEvent() {
                             UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
                         </p>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* smaller devices ke liye */}
                 <motion.div className="lg:hidden  mt-8"
@@ -310,7 +333,7 @@ export default function AfterEvent() {
                             Site links:
                         </li>
                         <li>
-                            <motion.div className="border-t border-b py-2 md:py-4 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                            <motion.div className="border-t  py-2 md:py-4 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                 initial="initial"
                                 whileHover="hover"
                                 whileTap="hover"
@@ -352,7 +375,24 @@ export default function AfterEvent() {
                             </motion.div>
                         </li>
                         <li>
-                            <motion.div className="border-t border-b py-2 md:py-4 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                            <motion.div
+                                role="link"
+                                tabIndex={0}
+                                onClick={() => {
+                                    window.open(
+                                        "https://mail.google.com/mail/?view=cm&fs=1&to=uxclub@vitbhopal.ac.in&su=Inquiry%20about%20UX%20Club%20and%20Membership&body=Hello%20UX%20Club%20Team,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20club%20and%20how%20to%20join.",
+                                        "_blank"
+                                    );
+                                }}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter") {
+                                        window.open(
+                                            "https://mail.google.com/mail/?view=cm&fs=1&to=uxclub@vitbhopal.ac.in&su=Inquiry%20about%20UX%20Club%20and%20Membership",
+                                            "_blank"
+                                        );
+                                    }
+                                }}
+                                className="border-t py-2 md:py-4 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                 initial="initial"
                                 whileHover="hover"
                                 whileTap="hover"
@@ -394,7 +434,12 @@ export default function AfterEvent() {
                             </motion.div>
                         </li>
                         <li>
-                            <motion.div className="border-t border-b py-2 md:py-4 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                            <motion.div 
+                            onClick ={()=>{
+                                    window.open("https://www.instagram.com/uxclub.vitb/","_blank");
+                                 }}
+                            
+                            className="border-t border-b py-2 md:py-4 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                 initial="initial"
                                 whileHover="hover"
                                 whileTap="hover"
