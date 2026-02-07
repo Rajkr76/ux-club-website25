@@ -1,12 +1,13 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Nav from "./Nav";
 import Footer from "./footer";
 import UpcomingEvent from "./upcomingEvent";
 import AfterEvent from "./AfterEvent";
 import Video from "./videoPart";
+import { useMenu } from "../context/MenuContext";
+
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isMenuOpen } = useMenu();
 
   return (
     <>

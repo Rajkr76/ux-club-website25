@@ -1,6 +1,6 @@
-
 import "./globals.css";
 import NavWrapper from "./NavWrapper";
+import { MenuProvider } from "../context/MenuContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,8 +14,10 @@ export default function RootLayout({ children }) {
       <body
         className={`antialiased`}
       >
-        <NavWrapper />
-        {children}
+        <MenuProvider>
+          <NavWrapper />
+          {children}
+        </MenuProvider>
       </body>
     </html>
   );

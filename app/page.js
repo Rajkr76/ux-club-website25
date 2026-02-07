@@ -14,12 +14,34 @@ export default function App() {
   // Initialize Lenis for smooth scrolling only after preloader
   useEffect(() => {
     if (!showPreloader) {
+      window.history.scrollRestoration = "manual";
       const lenis = new Lenis();
+
+      // Robustly set initial scroll position to the middle copy
+      const jumpToMiddle = () => {
+        const height = contentRef.current?.offsetHeight || 0;
+        if (height > 0) {
+           window.scrollTo(0, height);
+           lenis.scrollTo(height, { immediate: true });
+        }
+      };
+
+      // Attempt jump immediately and after a short delay to ensure layout is ready
+      jumpToMiddle();
+      const timer = setTimeout(jumpToMiddle, 50);
 
       lenis.on('scroll', ({ scroll }) => {
         const height = contentRef.current?.offsetHeight || 0;
-        if (height > 0 && scroll >= height) {
-          lenis.scrollTo(scroll - height, { immediate: true });
+        if (height > 0) {
+          if (scroll < 10) { 
+             // Scroll Up Loop: Near top of first copy -> Jump to top of second copy
+             if (scroll <= 0) {
+                lenis.scrollTo(height + scroll, { immediate: true });
+             }
+          } else if (scroll >= 2 * height) {
+            // Scroll Down Loop: Jump to start of second copy (end of first)
+            lenis.scrollTo(scroll - height, { immediate: true });
+          }
         }
       });
 
@@ -28,7 +50,9 @@ export default function App() {
         requestAnimationFrame(raf);
       }
       requestAnimationFrame(raf);
+      
       return () => {
+        clearTimeout(timer);
         lenis.destroy();
       };
     }
