@@ -5,11 +5,30 @@ import "lenis/dist/lenis.css";
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Home from "../components/Home";
+import Image from "next/image";
 
 export default function App() {
   const [showPreloader, setShowPreloader] = useState(true);
   const [count, setCount] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const contentRef = useRef(null);
+
+  const preloaderImages = [
+    "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1532372320572-cda25653a26d?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1579541814924-49fef17c5be5?q=80&w=1000&auto=format&fit=crop",
+  ];
+
+  // Rotate images rapidly in preloader
+  useEffect(() => {
+    if (showPreloader) {
+      const imageInterval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % preloaderImages.length);
+      }, 150);
+      return () => clearInterval(imageInterval);
+    }
+  }, [showPreloader]);
 
   // Initialize Lenis for smooth scrolling only after preloader
   useEffect(() => {
@@ -115,8 +134,16 @@ export default function App() {
                   animate={{ width: "15vh" }}
                   transition={{ delay: 0.5, duration: 1 }}
                   exit={{ width: 0 }}
-                  className="h-[15vh] bg-[#0e0e0e]"
-                ></motion.div>
+                  className="h-[20vh] relative overflow-hidden"
+                >
+                    <Image 
+                        src={preloaderImages[currentImageIndex]}
+                        alt="Preloader Image"
+                        fill
+                        className="object-cover transition-opacity duration-100"
+                        priority
+                    />
+                </motion.div>
                 <h1 className="text-5xl">X</h1>
               </div>
             </motion.h1>
