@@ -205,6 +205,41 @@ function MobileNav() {
                 <div className="w-full">
                   <div className="flex pb-2 items-center text-4xl justify-between">
                     <div className="overflow-hidden">
+                      <motion.div {...bigTextAnimation(1.3)}>
+                        <Link
+                          href="/Blog"
+                          onClick={() => setIsMenuOpen(false)}
+                          className={`text-4xl ${
+                            pathname === "/Blog"
+                              ? "text-[#0e0e0e]"
+                              : "text-zinc-500"
+                          }`}
+                        >
+                          Blog
+                        </Link>
+                      </motion.div>
+                    </div>
+                    <div className="overflow-hidden">
+                      <motion.div
+                        {...bigTextAnimation(1.4)}
+                        className={`text-4xl ${
+                          pathname === "/Blog"
+                            ? "text-[#0e0e0e]"
+                            : "text-zinc-500"
+                        }`}
+                      >
+                        03
+                      </motion.div>
+                    </div>
+                  </div>
+                  <motion.div
+                    {...underlineAnimation(1.45)}
+                    className="w-full bg-[#0e0e0e] h-[1px]"
+                  ></motion.div>
+                </div>
+                <div className="w-full">
+                  <div className="flex pb-2 items-center text-4xl justify-between">
+                    <div className="overflow-hidden">
                       <motion.div {...bigTextAnimation(1.5)}>
                         <Link
                           href="/"
@@ -218,7 +253,7 @@ function MobileNav() {
                               : "text-zinc-500"
                           }`}
                         >
-                          contacts
+                          Contacts
                         </Link>
                       </motion.div>
                     </div>
@@ -231,7 +266,7 @@ function MobileNav() {
                             : "text-zinc-500"
                         }`}
                       >
-                        03
+                        04
                       </motion.div>
                     </div>
                   </div>

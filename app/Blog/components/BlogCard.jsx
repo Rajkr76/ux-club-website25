@@ -13,7 +13,7 @@ const BlogCard = ({ blog }) => {
       <div className='block'>
         <h1  className='font-[Neue] mb-3 text-xl text-[#ECEAE5]'>{blog.categories}</h1>
         </div>
-      <div className="relative h-80  lg:h-[60vh] lg:w-96 sm overflow-hidden  sm:h-[50vh] md:h-[60vh] lg:px-0 sm:px-5 ">
+      <div className="relative h-[50vh]  lg:h-[60vh] lg:w-96  overflow-hidden  lg:px-0 sm:px-5 ">
         
         <img 
           src={blog.image} 
@@ -56,11 +56,11 @@ const BlogCard = ({ blog }) => {
 
 const BlogSection = () => {
   return (
-    <section className="py-4 px-8 sm:px-6 lg:px-6  bg-gray-900">
-      <div className="max-w-[1450px] mx-auto">
-        <h1 className='font-[Neue] text-2xl mb-8 lg:px-0 sm:px-6 text-[#ECEAE5]'>Categories</h1>
+    <section className="xl:py-2 lg:py-2  lg:px-4 px-3.5 xl:px-1  bg-gray-900">
+      <div className="w-full max-w-[94rem] mx-auto">
+        <h1 className='font-[Neue] text-2xl xl:mb-5 lg:mb-5 mb-2 text-[#ECEAE5]'>Categories</h1>
 
-         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-x-40 lg:gap-y-12 gap-y-8">
+         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:grid-cols-3 gap-x-6 lg:gap-x-40 lg:gap-y-12 gap-y-8">
           {blogData.blogs.map((blog) => (
             <BlogCard key={blog.id} blog={blog} />
           ))}

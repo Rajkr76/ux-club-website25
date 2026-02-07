@@ -27,7 +27,7 @@ function OpenBlog({ blog }) {
 
   return (
     <>
-      <section className={`w-full pt-10 min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+      <section className={`w-full xl:pt-10 lg:pt-10 pt-8 min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
         {/* Navigation bar */}
         <nav className={`flex justify-between items-center px-4 lg:px-5 xl:px-6 py-4 shadow-sm border-b transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 ' : 'bg-white border-gray-200'}`}>
           <div className='flex items-center gap-4'>
@@ -49,7 +49,7 @@ function OpenBlog({ blog }) {
 
             {/* Main Content Area */}
             <div className='lg:col-span-2'>
-              <div className={`w-full relative overflow-hidden  mb-4 transition-colors duration-300 h-[60vh] lg:h-[65vh] sm:h-[35vh] md:h-[25vh]  object-cover ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+              <div className={`w-full relative overflow-hidden  mb-4 transition-colors duration-300 h-[50vh] xl:h-[65vh] lg:h-[65vh]  md:h-[25vh]  object-cover ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
 
                 <Link href="/Blog">
                   <h2 className="text-black absolute right-5 top-3 font-bold font-[Neue] text-xl ">Close</h2>

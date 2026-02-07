@@ -26,15 +26,15 @@ function Hero() {
 
   return (
     <main className='bg-gray-900'>
-      <nav className='flex justify-between px-4 sm:px-8 py-15'>
-        <h1 className='font-[Neue] font-medium lg:text-base sm:text-base mix-blend-difference text-white'>BLOG PAGE</h1>
+      <nav className='flex justify-between xl:px-4 lg:px-4 px-4 xl:pt-14 lg:pt-14 pt-10'>
+        {/* <h1 className='font-[Neue] font-medium lg:text-base sm:text-base mix-blend-difference text-white'>BLOG PAGE</h1> */}
         
       </nav>
       
       <section className='flex justify-center px-2 sm:px-0'>
        
         {/* Auto-scrolling images */}
-        <div className='hidden sm:block relative overflow-hidden max-w-[90rem] mx-auto w-full'>
+        <div className='hidden sm:block relative overflow-hidden max-w-[94rem] mx-auto w-full'>
           <motion.div
             className="flex gap-4"
             animate={{
