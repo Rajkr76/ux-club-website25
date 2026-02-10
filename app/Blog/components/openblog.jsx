@@ -9,11 +9,11 @@ import { blogData, getBlogById } from './blogData'
 function OpenBlog({ blog }) {
   const [isDarkMode, setIsDarkMode] = useState(true);
   
-  // Use default blog if none provided
+// Use default blog if none provided
   const currentBlog = blog || {
     id: 1,
     Date: "# DATE: 25/09/25",
-    subtitle: "M_001",
+    subtitle: "B_001",
     description: "",
     image: "https://images.unsplash.com/photo-1655669357124-394d107b3aaf?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   };
@@ -56,8 +56,9 @@ function OpenBlog({ blog }) {
                 </Link>
                 <img
                   src={currentBlog.image}
-                  alt={currentBlog.Date}
+                  alt={currentBlog.image}
                   className='w-full h-full object-cover'
+                  style={{ objectPosition: "10% 0%" }} 
                 />
               </div>
 
@@ -103,6 +104,7 @@ function OpenBlog({ blog }) {
                         src={relatedBlog.image}
                         alt="Related article"
                         className='w-full h-48 object-cover'
+                        style={{ objectPosition: "40% 10%" }}
                       />
                       <div className="absolute bottom-4 right-4">
                         <FontAwesomeIcon

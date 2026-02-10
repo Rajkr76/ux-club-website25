@@ -59,7 +59,6 @@ const BlogSection = () => {
     <section className="xl:py-2 lg:py-2  lg:px-4 px-3.5 xl:px-1  bg-black">
       <div className="w-full max-w-[94rem] mx-auto">
         <h1 className='font-[Neue] text-2xl xl:mb-5 lg:mb-5 mb-2 text-[#ECEAE5]'>Categories</h1>
-
          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:grid-cols-3 gap-x-6 lg:gap-x-40 lg:gap-y-12 gap-y-8">
           {blogData.blogs.map((blog) => (
             <BlogCard key={blog.id} blog={blog} />
