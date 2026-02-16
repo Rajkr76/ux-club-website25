@@ -31,10 +31,10 @@ function Hero() {
         
       </nav>
       
-      <section className='flex justify-center px-2 sm:px-0'>
+      <section className='flex justify-center'>
        
         {/* Auto-scrolling images */}
-        <div className='hidden sm:block relative overflow-hidden max-w-[94rem] mx-auto w-full'>
+        <div className='hidden sm:block relative overflow-hidden max-w-[94rem] mx-auto w-full px-4'>
           <motion.div
             className="flex gap-4"
             animate={{
@@ -60,7 +60,7 @@ function Hero() {
                 <img 
                   src={imageSrc} 
                   alt={`gallery image ${index + 1}`} 
-                  className='h-[90vh] w-[96vw] px-2 py-2  object-cover '
+                  className='h-[90vh] w-[calc(100vw-2rem)] max-w-[1504px] object-cover'
                   style={{ objectPosition: "50% 10%" }} 
                 />
               </motion.div>

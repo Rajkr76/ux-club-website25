@@ -3,6 +3,7 @@ export const blogData = {
     {
       id: 1,
       Date: "# DATE: 03/03/25",
+      time_of_upload: "2 hours ago",
       categories:"Stories",
       subtitle: "B_001",
       preview: "🤖 The Secret UX Lessons Hidden Inside Canva and Figma", 
@@ -48,6 +49,7 @@ Drop your favorite hacks or tips in the comments—we’re always looking for ne
     {
       id: 2,
        Date: "# DATE: 22/02/23",
+       time_of_upload: "1 day ago",
        categories:"Design",
       subtitle: "B_002", 
        preview: "Micro-Interactions: The Small Details That Make Big Differences",
@@ -105,6 +107,7 @@ What’s your favorite micro-interaction you’ve experienced recently? Drop it 
     {
       id: 3,
        Date: "# DATE: 11/06/25",
+       time_of_upload: "3 days ago",
        categories:"Product",
       subtitle: "B_003",
        preview: "The UX of Waiting: Don't Just Kill Time, Design It",
@@ -166,6 +169,7 @@ Share a link or describe it below 👇</p>
     {
       id: 4,
       Date: "# DATE: 15/09/25",
+      time_of_upload: "5 days ago",
       categories:"Culture",
       subtitle: "B_004",
        preview: "🧵 Raksha Bandhan: A Timeless Bond of Love, Protection, and Memories",
@@ -228,6 +232,7 @@ A childhood memory, a long-distance call, or a simple promise—share your story
     {
       id: 5,
       Date: "# DATE: 12/04/25",
+      time_of_upload: "1 week ago",
       categories:"Design",
       subtitle: "B_005",
        preview: "🎨 Why Great UI/UX Feels Effortless (But Takes Real Effort)",
@@ -287,6 +292,7 @@ Share your experience or a link below 👇</p>
     {
       id: 6,
       Date: "# DATE: 25/09/25",
+       time_of_upload: "2 weeks ago",
        categories:"Inspiration",
       subtitle: "B_006",
        preview: "🚀 The Entrepreneur's Playbook: From Side Hustle to Success Story",
